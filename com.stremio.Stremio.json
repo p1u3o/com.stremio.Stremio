@@ -19,6 +19,12 @@
     "--talk-name=org.a11y.Bus",
     "--talk-name=org.freedesktop.Notifications"
   ],
+  "cleanup":[
+    "/include",
+    "/lib/pkgconfig",
+    "/share/man",
+    "/lib/debug"
+  ],
   "modules":[
     "udev-175.json",
     {
@@ -33,15 +39,15 @@
     },
     {
       "name":"stremio",
-      "buildsystem":"simple",
+      "buildsystem":"qmake",
       "build-options":{
         "env":{
           "LIBRARY_PATH":"/app/lib:/usr/lib"
         }
       },
-      "build-commands":[
-        "make -f release.makefile PREFIX=/app",
-        "make -f release.makefile PREFIX=/app install"
+      "post-install":[
+        "install -Dm 755 server.js /app/opt/stremio/server.js",
+        "ln -s /app/bin/node /app/opt/stremio/node"
       ],
       "sources":[
         {
@@ -77,7 +83,7 @@
           ],
           "buildsystem":"simple",
           "build-commands":[
-            "python3 waf configure --prefix=/app --enable-libmpv-shared --disable-cplayer --disable-build-date --disable-oss-audio --disable-alsa ",
+            "python3 waf configure --prefix=/app --enable-libmpv-shared --disable-build-date --disable-oss-audio --disable-alsa ",
             "python3 waf build",
             "python3 waf install"
           ],
