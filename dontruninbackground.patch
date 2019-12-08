@@ -1,0 +1,12 @@
+diff --git a/main.qml b/main.qml
+index eac2a13..ea2114b 100644
+--- a/main.qml
++++ b/main.qml
+@@ -561,6 +561,7 @@ ApplicationWindow {
+     onClosing: function(event){
+         event.accepted = false
+         root.hide()
++        quitApp();
+     }
+ 
+     //
