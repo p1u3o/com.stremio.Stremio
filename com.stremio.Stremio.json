@@ -6,7 +6,7 @@
   "base":"io.qt.qtwebkit.BaseApp",
   "base-version":"5.12",
   "sdk":"org.kde.Sdk",
-  "command":"stremio-wrapper",
+  "command":"/app/opt/stremio/stremio",
   "separate-locales":false,
   "finish-args":[
     "--share=ipc",
@@ -16,18 +16,33 @@
     "--socket=pulseaudio",
     "--filesystem=home",
     "--persist=.pki/nssdb:rw",
+    "--talk-name=org.a11y.Bus",
     "--talk-name=org.freedesktop.Notifications"
   ],
   "modules":[
     "udev-175.json",
     {
+      "name":"nodejs",
+      "sources":[
+        {
+          "type":"archive",
+          "url":"https://nodejs.org/dist/v12.13.1/node-v12.13.1.tar.gz",
+          "sha256":"4ee710087687c8de142329d95085f5cba66e454a2c9ea7ec11e1f4b476d6d1ac"
+        }
+      ]
+    },
+    {
       "name":"stremio",
-      "buildsystem":"qmake",
+      "buildsystem":"simple",
       "build-options":{
         "env":{
           "LIBRARY_PATH":"/app/lib:/usr/lib"
         }
       },
+      "build-commands":[
+        "make -f release.makefile PREFIX=/app",
+        "make -f release.makefile PREFIX=/app install"
+      ],
       "sources":[
         {
           "type":"git",
@@ -36,6 +51,10 @@
           ],
           "url":"https://github.com/Stremio/stremio-shell.git",
           "tag":"4.4.77"
+        },
+        {
+          "type":"file",
+          "path":"server.js"
         }
       ],
       "modules":[
