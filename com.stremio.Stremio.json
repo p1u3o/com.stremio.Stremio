@@ -23,6 +23,11 @@
     {
       "name":"stremio",
       "buildsystem":"qmake",
+      "build-options" : {
+          "env": {
+              "LIBRARY_PATH": "/app/lib:/usr/lib"
+          }
+},
       "sources":[
         {
           "type":"git",
@@ -36,15 +41,26 @@
       ],
       "modules":[
         {
+          "name": "wget",
+          "sources": [
+            {
+              "type": "archive",
+              "url": "https://ftp.gnu.org/gnu/wget/wget-1.20.3.tar.gz",
+              "sha256": "31cccfc6630528db1c8e3a06f6decf2a370060b982841cfab2b8677400a5092e"
+            }
+          ]
+        },
+        {
           "name":"libmpv",
           "cleanup":[
             "/include",
             "/lib/pkgconfig",
             "/share/man"
           ],
+
           "buildsystem":"simple",
           "build-commands":[
-            "python3 waf configure --prefix=/app --enable-libmpv-shared --disable-cplayer --disable-build-date --disable-oss-audio --disable-alsa",
+            "python3 waf configure --prefix=/app --enable-libmpv-shared --disable-cplayer --disable-build-date --disable-oss-audio --disable-alsa ",
             "python3 waf build",
             "python3 waf install"
           ],
