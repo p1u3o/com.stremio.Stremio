@@ -11,13 +11,13 @@
   "finish-args":[
     "--share=ipc",
     "--share=network",
-    "--device=all",
-    "--socket=x11",
+    "--device=dri",
+    "--socket=fallback-x11",
+    "--socket=wayland",
     "--socket=pulseaudio",
-    "--filesystem=home",
-    "--persist=.pki/nssdb:rw",
     "--talk-name=org.a11y.Bus",
-    "--talk-name=org.freedesktop.Notifications"
+    "--talk-name=org.freedesktop.Notifications",
+    "--env=TMPDIR=/var/cache/tmp"
   ],
   "cleanup":[
     "/include",
@@ -49,9 +49,10 @@
         }
       },
       "post-install":[
-        "install -Dm 755 server.js /app/opt/stremio/server.js",
-        "install -Dm 644 com.stremio.Stremio.desktop /app/share/applications/com.stremio.Stremio.desktop",
-        "install -Dm 644 com.stremio.Stremio.svg /app/share/icons/hicolor/scalable/apps/com.stremio.Stremio.svg",
+        "install -Dm755 server.js /app/opt/stremio/server.js",
+        "install -Dm644 com.stremio.Stremio.desktop /app/share/applications/com.stremio.Stremio.desktop",
+        "install -Dm644 com.stremio.Stremio.svg /app/share/icons/hicolor/scalable/apps/com.stremio.Stremio.svg",
+        "install -Dm644 com.stremio.Stremio.appdata.xml /app/share/metainfo/com.stremio.Stremio.appdata.xml",
         "ln -s /app/bin/node /app/opt/stremio/node"
       ],
       "sources":[
@@ -75,6 +76,10 @@
         {
           "type":"file",
           "path":"com.stremio.Stremio.svg"
+        },
+        {
+          "type":"file",
+          "path":"com.stremio.Stremio.appdata.xml"
         },
         {
           "type":"patch",

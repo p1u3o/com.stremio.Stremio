@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+  <id>com.stremio.Stremio</id>
+  <name>Stremio</name>
+  <summary>Watch videos, movies, TV series and TV channels instantly.</summary>
+  <metadata_license>CC0-1.0</metadata_license>
+  <description>
+    <p>
+      Watch videos, movies, TV series and TV channels instantly.
+    </p>
+  </description>
+  <url type="homepage">https://www.stremio.com/</url>
+
+  <project_license>GPL-3.0+</project_license>
+
+  <releases>
+    <release version="4.4.77" date="2019-07-02" />
+  </releases>
+</component>
+
