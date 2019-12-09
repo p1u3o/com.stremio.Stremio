@@ -26,7 +26,7 @@
     "/lib/debug"
   ],
   "modules":[
-    "udev-175.json",
+    "modules/udev-175.json",
     {
       "name":"nodejs",
       "config-opts": [
@@ -52,6 +52,7 @@
         "install -Dm755 server.js /app/opt/stremio/server.js",
         "install -Dm644 com.stremio.Stremio.desktop /app/share/applications/com.stremio.Stremio.desktop",
         "install -Dm644 com.stremio.Stremio.svg /app/share/icons/hicolor/scalable/apps/com.stremio.Stremio.svg",
+        "install -Dm644 com.stremio.Stremio-symbolic.svg /app/share/icons/hicolor/scalable/apps/com.stremio.Stremio-symbolic.svg",
         "install -Dm644 com.stremio.Stremio.appdata.xml /app/share/metainfo/com.stremio.Stremio.appdata.xml",
         "ln -s /app/bin/node /app/opt/stremio/node"
       ],
@@ -71,19 +72,23 @@
         },
         {
           "type":"file",
-          "path":"com.stremio.Stremio.desktop"
+          "path":"assets/com.stremio.Stremio.desktop"
         },
         {
           "type":"file",
-          "path":"com.stremio.Stremio.svg"
+          "path":"assets/com.stremio.Stremio.svg"
         },
         {
           "type":"file",
-          "path":"com.stremio.Stremio.appdata.xml"
+          "path":"assets/com.stremio.Stremio-symbolic.svg"
+        },
+        {
+          "type":"file",
+          "path":"assets/com.stremio.Stremio.appdata.xml"
         },
         {
           "type":"patch",
-          "path":"dontruninbackground.patch"
+          "path":"patches/dontruninbackground.patch"
         }
       ],
       "modules":[
