@@ -67,8 +67,8 @@
         },
         {
           "type":"file",
-          "url":"https://s3-eu-west-1.amazonaws.com/stremio-artifacts/four/master/server.js",
-          "sha256": "f55c5149cadbb798c1e0880fd921258462ae4b8a76446cb08ebdc2f9df2c935d"
+          "url":"https://dl.strem.io/four/v4.4.77/server.js",
+          "sha256": "2ccab494d975363fd16b61d51527995c7d452d66e69dd1bd9ffa2a4d11fb7191"
         },
         {
           "type":"file",
