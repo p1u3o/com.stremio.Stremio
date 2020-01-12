@@ -22,8 +22,7 @@
   "cleanup":[
     "/include",
     "/lib/pkgconfig",
-    "/share/man",
-    "/lib/debug"
+    "/share/man"
   ],
   "modules":[
     "modules/udev-175.json",
