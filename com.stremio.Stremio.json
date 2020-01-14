@@ -1,10 +1,10 @@
 {
   "app-id":"com.stremio.Stremio",
   "runtime":"org.kde.Platform",
-  "runtime-version":"5.12",
+  "runtime-version":"5.13",
   "branch":"stable",
   "base":"io.qt.qtwebkit.BaseApp",
-  "base-version":"5.12",
+  "base-version":"5.13",
   "sdk":"org.kde.Sdk",
   "command":"/app/opt/stremio/stremio",
   "separate-locales":true,
@@ -17,14 +17,18 @@
     "--socket=pulseaudio",
     "--talk-name=org.a11y.Bus",
     "--talk-name=org.freedesktop.Notifications",
+    "--talk-name=org.kde.StatusNotifierWatcher",
+    "--own-name=org.kde.StatusNotifierItem-2-1",
     "--env=TMPDIR=/var/cache/tmp"
   ],
   "cleanup":[
     "/include",
     "/lib/pkgconfig",
-    "/share/man"
+    "/share/man",
+    "/bin/python"
   ],
   "modules":[
+    "shared-modules/python2.7/python-2.7.json",
     "modules/udev-175.json",
     {
       "name":"nodejs",
@@ -34,8 +38,8 @@
       "sources":[
         {
           "type":"archive",
-          "url":"https://nodejs.org/dist/v12.13.1/node-v12.13.1.tar.gz",
-          "sha256":"4ee710087687c8de142329d95085f5cba66e454a2c9ea7ec11e1f4b476d6d1ac"
+          "url":"https://nodejs.org/dist/v12.14.1/node-v12.14.1.tar.gz",
+          "sha256":"42a7f0777fea8825611cb9250ff927824dba4f7aea854b47d522798acf4bdbc6"
         }
       ]
     },
@@ -58,9 +62,6 @@
       "sources":[
         {
           "type":"git",
-          "only-arches":[
-            "x86_64"
-          ],
           "url":"https://github.com/Stremio/stremio-shell.git",
           "tag":"4.4.77"
         },
@@ -107,13 +108,13 @@
           "sources":[
             {
               "type":"archive",
-              "url":"https://github.com/mpv-player/mpv/archive/v0.30.0.tar.gz",
-              "sha256":"33a1bcb7e74ff17f070e754c15c52228cf44f2cefbfd8f34886ae81df214ca35"
+              "url":"https://github.com/mpv-player/mpv/archive/v0.31.0.tar.gz",
+              "sha256":"805a3ac8cf51bfdea6087a6480c18835101da0355c8e469b6d488a1e290585a5"
             },
             {
               "type":"file",
-              "url":"https://waf.io/waf-2.0.12",
-              "sha256":"0979ca87f45928e0d752049ab2f43be8551249be73dc5563b944ec54f8871d1f",
+              "url":"https://waf.io/waf-2.0.19",
+              "sha256":"ba63c90a865a9bcf46926c4e6776f9a3f73d29f33d49b7f61f96bc37b7397cef",
               "dest-filename":"waf"
             }
           ],
@@ -162,8 +163,8 @@
               "sources":[
                 {
                   "type":"archive",
-                  "url":"https://linuxtv.org/downloads/v4l-utils/v4l-utils-1.16.2.tar.bz2",
-                  "sha256":"6c3208c9a1c73455d30bae83096d161e57bec5008594f270a2a67df8c86d8e47"
+                  "url":"https://linuxtv.org/downloads/v4l-utils/v4l-utils-1.16.8.tar.bz2",
+                  "sha256":"84346bf200bd30efb8a80a65ded1b81d39ae7e0ff2272e98f478b4eee8f40d13"
                 }
               ]
             },
@@ -205,8 +206,8 @@
               "sources":[
                 {
                   "type":"archive",
-                  "url":"https://ffmpeg.org/releases/ffmpeg-4.2.1.tar.xz",
-                  "sha256":"cec7c87e9b60d174509e263ac4011b522385fd0775292e1670ecc1180c9bb6d4"
+                  "url":"https://ffmpeg.org/releases/ffmpeg-4.2.2.tar.xz",
+                  "sha256":"cb754255ab0ee2ea5f66f8850e1bd6ad5cac1cd855d0a2f4990fb8c668b0d29c"
                 }
               ]
             },
@@ -216,8 +217,8 @@
               "sources":[
                 {
                   "type":"archive",
-                  "url":"https://github.com/fribidi/fribidi/releases/download/v1.0.7/fribidi-1.0.7.tar.bz2",
-                  "sha256":"5ab5f21e9f2fc57b4b40f8ea8f14dba78a5cc46d9cf94bc5e00a58e6886a935d"
+                  "url":"https://github.com/fribidi/fribidi/releases/download/v1.0.8/fribidi-1.0.8.tar.bz2",
+                  "sha256":"94c7b68d86ad2a9613b4dcffe7bbeb03523d63b5b37918bdf2e4ef34195c1e6c"
                 }
               ]
             },
