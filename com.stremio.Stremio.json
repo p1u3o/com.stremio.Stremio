@@ -3,8 +3,6 @@
   "runtime":"org.kde.Platform",
   "runtime-version":"5.12",
   "branch":"stable",
-  "base":"io.qt.qtwebkit.BaseApp",
-  "base-version":"5.12",
   "sdk":"org.kde.Sdk",
   "command":"/app/opt/stremio/stremio",
   "separate-locales":true,
